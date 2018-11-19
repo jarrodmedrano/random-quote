@@ -4,23 +4,17 @@ import NewQuote from "./NewQuote";
 import TweetQuote from "./TweetQuote";
 
 class QuoteBox extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      text: 'What',
-      author: 'Jarrod'
-    }
-  }
+  createMarkup = () => {
+    return {__html: this.props.quote.content};
+  };
 
   render() {
     return (
       <div id="quote-box">
-        <p id="text">
-          {this.state.text}
+        <p id="text" dangerouslySetInnerHTML={this.createMarkup()}>
         </p>
         <p id="author">
-          {this.state.author}
+          {this.props.quote.title}
         </p>
         <NewQuote />
         <TweetQuote />
