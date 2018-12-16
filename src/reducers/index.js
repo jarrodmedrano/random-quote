@@ -1,9 +1,13 @@
 import {GET_NEW_QUOTE} from '../actions';
 
-const rootReducer = (state = [], action) => {
+const initialState = {
+  quote: {}
+};
+
+const rootReducer = (state = initialState, action) => {
     switch(action.type) {
       case GET_NEW_QUOTE:
-        return action.payload || false
+        return Object.assign({}, state, {quote: action.payload});
       default:
         return state
     }

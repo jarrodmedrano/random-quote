@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 
 class TweetQuote extends Component {
   render() {
@@ -12,7 +11,5 @@ class TweetQuote extends Component {
     );
   }
 }
-
-TweetQuote.propTypes = {};
 
 export default TweetQuote;

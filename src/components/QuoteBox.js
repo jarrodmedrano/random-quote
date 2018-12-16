@@ -1,20 +1,18 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import NewQuote from "./NewQuote";
 import TweetQuote from "./TweetQuote";
-import {getNewQuote} from "../actions";
 
 class QuoteBox extends Component {
   createQuote = () => {
     if(this.props.data) {
-      return {__html: this.props.data.content};
+      return {__html: this.props.data[0].content};
     }
   };
 
   createAuthor = () => {
     if(this.props.data) {
-      return this.props.data.title;
+      return this.props.data[0].title;
     }
   };
 
@@ -37,7 +35,7 @@ class QuoteBox extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    data: state[0]
+    data: state.quote
   }
 };
 
