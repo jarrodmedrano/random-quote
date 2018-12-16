@@ -6,13 +6,13 @@ import TweetQuote from "./TweetQuote";
 class QuoteBox extends Component {
   createQuote = () => {
     if(this.props.data) {
-      return {__html: this.props.data[0].content};
+      return {__html: this.props.data.quote};
     }
   };
 
   createAuthor = () => {
     if(this.props.data) {
-      return this.props.data[0].title;
+      return this.props.data.author;
     }
   };
 
