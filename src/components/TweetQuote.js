@@ -1,9 +1,17 @@
 import React, {Component} from 'react';
+import connect from "react-redux/es/connect/connect";
 
 class TweetQuote extends Component {
+
+  createQuote = () => {
+    if(this.props.data) {
+      return `https://www.twitter.com/intent/tweet?text=${this.props.data.quote} - ${this.props.data.author}`;
+    }
+  };
+
   render() {
     return (
-      <a href="twitter.com/intent/tweet">
+      <a href={this.createQuote()} target="_blank">
         <button id="tweet-quote">
           Tweet Quote
         </button>
@@ -12,4 +20,11 @@ class TweetQuote extends Component {
   }
 }
 
-export default TweetQuote;
+
+const mapStateToProps = (state) => {
+  return {
+    data: state.quote
+  }
+};
+
+export default connect(mapStateToProps)(TweetQuote);
