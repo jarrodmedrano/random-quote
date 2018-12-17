@@ -11,7 +11,7 @@ class TweetQuote extends Component {
 
   render() {
     return (
-      <a href={this.createQuote()} target="_blank">
+      <a href={this.createQuote()} target="_blank" rel="noopener noreferrer">
         <button id="tweet-quote">
           Tweet Quote
         </button>
